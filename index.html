@@ -107,13 +107,45 @@
 </style>
 
 <script>
-window.addEventListener("load", () => {
-  const img = document.getElementById("image-barra");
-  img.src = "https://www.cristianismeijusticia.net/sites/www.cristianismeijusticia.net/files/2026-05/Barra_donatius_ESP.png?t=" + Date.now();
+function imageExists(url) {
+  return new Promise((resolve) => {
+    const img = new Image();
 
-  const img2 = document.getElementById("image-barra-mobile");
-  img2.src = "https://www.cristianismeijusticia.net/sites/www.cristianismeijusticia.net/files/2026-05/GraficaRodona_ESP.png?t=" + Date.now();
-});
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+
+    img.src = url;
+  });
+}
+
+async function findLastImage(imagename, imageid) {
+  let image_counter = 0;
+  let image_exist = true;
+  let current_image_url = '';
+
+  while (image_exist) {
+    image_counter++;
+
+    const url =
+      'https://www.cristianismeijusticia.net/sites/www.cristianismeijusticia.net/files/2026-05/'+imagename+'_' +
+      image_counter +
+      '.png';
+
+    const exists = await imageExists(url);
+
+    if (exists) {
+      current_image_url = url;
+    } else {
+      image_exist = false;
+      const img = document.getElementById(imageid);
+      img.src = current_image_url+"?t=" + Date.now();
+    }
+  }
+}
+
+findLastImage("Barra_donatius_ESP","image-barra");
+findLastImage("GraficaRodona_ESP","image-barra-mobile"); 
+
 </script>
 
 
