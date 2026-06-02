@@ -119,7 +119,7 @@ function imageExists(url) {
 }
 
 async function findLastImage(imagename, imageid) {
-  let image_counter = 0;
+  let image_counter = -1;
   let image_exist = true;
   let current_image_url = '';
 
@@ -127,7 +127,7 @@ async function findLastImage(imagename, imageid) {
     image_counter++;
 
     const url =
-      'https://www.cristianismeijusticia.net/sites/www.cristianismeijusticia.net/files/2026-05/'+imagename+'_' +
+      'https://www.cristianismeijusticia.net/sites/www.cristianismeijusticia.net/files/2026-06/'+imagename+'_' +
       image_counter +
       '.png';
 
@@ -214,8 +214,8 @@ findLastImage("GraficaRodona_ESP","image-barra-mobile");
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-md-12 col-lg-12 text-center" style="margin-bottom: 50px;">
-        <img id="image-barra" class="img-desktop" style="margin: 0 auto;  width: 900px;" src="https://www.cristianismeijusticia.net/sites/www.cristianismeijusticia.net/files/2026-05/Barra_donatius_ESP.png" />
-        <img id="image-barra-mobile" class="img-mobile" style="margin: 0 auto;" src="https://www.cristianismeijusticia.net/sites/www.cristianismeijusticia.net/files/2026-05/GraficaRodona_ESP.png" />
+        <img id="image-barra" class="img-desktop" style="margin: 0 auto;  width: 900px;" src="https://www.cristianismeijusticia.net/sites/www.cristianismeijusticia.net/files/2026-06/Barra_donatius_ESP.png" />
+        <img id="image-barra-mobile" class="img-mobile" style="margin: 0 auto;" src="https://www.cristianismeijusticia.net/sites/www.cristianismeijusticia.net/files/2026-06/GraficaRodona_ESP.png" />
       </div>
     </div>
     <div class="row justify-content-center" style="padding: 50px; padding-top: 0px;">
